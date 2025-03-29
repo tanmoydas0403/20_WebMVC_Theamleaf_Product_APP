@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class ProductController {
     @Autowired
@@ -32,6 +34,9 @@ public class ProductController {
     @GetMapping("/products")
     public String loadProduct(Model model){
         model.addAttribute("products", repo.findAll());
+        List<Product> all = repo.findAll();
+        System.out.println(all);
         return "data";
     }
+
 }
